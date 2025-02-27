@@ -1,0 +1,132 @@
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+
+    /* Configuração básica */
+    main {
+        flex-direction: column-reverse;
+        height: auto;
+        width: 100%;
+        overflow-y: auto;
+        margin-bottom: 60px;
+    }
+
+    /* Ajuste do menu de navegação */
+    header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--header-bg-color);
+        height: 80px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    header img {
+        width: 100px;
+    }
+
+    /* Ajuste do menu de navegação */
+    .menu-toggle {
+        display: flex;
+        background-color: var(--header-bg-color);
+    }
+
+    .menu-desktop {
+        position: fixed;
+        left: -100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .close-menu {
+        display: none;
+    }
+
+    .menu-toggle.active .open-menu {
+        display: none;
+    }
+    
+    .menu-toggle.active .close-menu {
+        display: inline-block;
+    }    
+
+    .column-left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 100%;
+        transform: translateX(-100%);
+        /* Esconde o menu no mobile */
+        background-color: var(--header-bg-color);
+        transition: transform 0.3s ease;
+    }
+
+    .column-left img {
+        display: none;
+    }
+
+    /* Ajuste do contêiner de usuário */
+    .user {
+        width: 100%;
+        padding: 15px;
+    }
+
+    /* Info do usuário e seguidores */
+    .info-user {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    /* Ajuste da imagem do perfil */
+    .info-user img {
+        height: 80px;
+        width: 80px;
+    }
+
+    .info-user-text button {
+        text-align: center;
+        width: 100%;
+        font-size: 12px;
+    }
+
+    /* Estilo de posts para mobile */
+    .post-user {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    /* Ajuste das imagens de post */
+    .post img {
+        max-width: 100px;
+        max-height: 100px;
+    }
+
+    .my-pets {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px;
+        width: 140px;
+        height: 120px;
+    }
+
+    .my-pets h4 {
+        font-size: 1rem;
+    }
+
+    .my-pets .pets img {
+        display: flex;
+        max-width: 50px;
+        max-height: 50px;
+    }
+}

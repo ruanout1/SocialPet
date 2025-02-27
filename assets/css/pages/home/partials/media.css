@@ -1,0 +1,218 @@
+@media (max-width: 768px) {
+    body {
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    main {
+        padding-bottom: 150px;
+    }
+
+    header {
+        grid-area: header;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--header-bg-color);
+        height: 80px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 11;
+    }
+
+    header img {
+        width: 100px;
+    }
+
+    /* Ajuste do menu de navegação */
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-desktop {
+        position: fixed;
+        left: -100%;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .close-menu {
+        display: none;
+    }
+
+    .menu-toggle.active .open-menu {
+        display: none;
+    }
+    
+    .menu-toggle.active .close-menu {
+        display: inline-block;
+    }    
+
+    .sidebar-left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 150px;
+        height: 100%;
+        transform: translateX(-100%);
+        /* Esconde o menu no mobile */
+        background-color: var(--header-bg-color);
+        transition: transform 0.3s ease;
+        z-index: 10;
+    }
+
+    .sidebar-left img {
+        display: none;
+    }
+
+    .sidebar-left nav {
+        margin-top: 70px;
+    }
+
+    .sidebar-right {
+        display: none;
+    }
+
+    .post {
+        width: 100%;
+    }
+
+    .icons-and-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    .icons button i {
+        font-size: 20px;
+    }
+
+    .new-post textarea {
+        flex: 1;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .info-user {
+        display: none;
+    }
+
+    .btn-submit-form {
+        height: 30px;
+        margin-left: 10px;
+    }
+
+    .new-post {
+        border-radius: 8px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .icons-and-button {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    .icons {
+        display: flex;
+        gap: 12px;
+    }
+
+    .icons button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+        font-size: 24px;
+        color: #ff5722;
+    }
+
+    .icons button:hover {
+        transform: scale(1.1);
+    }
+
+    .btn-file-form i {
+        font-size: 24px;
+    }
+
+    .btn-submit-form {
+        color: white;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    #selectedImagePreview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    #selectedImagePreview img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .new-post {
+        padding: 12px;
+    }
+
+    .new-post textarea {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .btn-submit-form {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .icons button {
+        font-size: 20px;
+    }
+
+    #selectedImagePreview img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 576px) {
+    .post-actions {
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .post-actions span {
+        font-size: 10px;
+    }
+}
