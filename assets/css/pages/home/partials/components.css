@@ -52,15 +52,36 @@
     display: flex;
     flex-direction: column;
 }
+.carousel {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+   /* display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;*/
+    
 
-.post-content img {
+
+}
+.carousel-images {
+    position: absolute;
+    width: 100%;
+    border: radius 10px; ;
+    
+}
+
+/*.post-content img {
     align-self: center;
     margin-top: 10px;
     height: auto;
     max-height: 250px;
     max-width: 100%;
     border-radius: 8px;
-}
+}*/
 
 .post-icons {
     display: flex;

@@ -45,7 +45,7 @@
             </ul>
         </nav>
     </aside>
-
+    <!-- Primeira postagem -->
     <main>
         <section class="feed">
             <article class="post">
@@ -59,8 +59,17 @@
                 </div>
                 <div class="post-content">
                     <p>Cara de quem quer brincar haha.</p>
-                    <img src="./assets/images/pages/home/postEstaticos/pexels-katlovessteve-551628.jpg"
-                        alt="Imagem da postagem">
+                    <!-- Carrossel de imagens -->
+                    <div class="carousel">
+                        <div class="carousel-images">
+                            <img src="./assets/images/pages/home/postEstaticos/pexels-katlovessteve-551628.jpg"
+                                 alt="Imagem da postagem" class="carousel-images">
+                            <img src="./assets/images/pages/home/cachorro-border-collie-preto-e-branco-Petlove.jpeg"
+                                 alt="Imagem da postagem"  class="carousel-images"> 
+                        </div>
+                        <button class="prev" onclick="moveSlide(-1)"></button>
+                        <button class="next" onclick="moveSlide(1)"></button>
+                    </div>          
                 </div>
                 <div class="post-icons"> 
                     <div class="post-actions">
