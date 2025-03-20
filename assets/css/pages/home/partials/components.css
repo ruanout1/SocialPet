@@ -91,7 +91,7 @@
 
 .manual-btn{
     border: 1px solid rgb(74, 68, 68);
-    padding: 5px;
+    padding: 2px;
     border-radius: 10px;
     cursor: pointer;
     transition: 0,5s;
@@ -118,7 +118,7 @@
 
 .navigation-auto div{
     border: 1px solid rgb(64, 64, 71);
-    padding: 5px;
+    padding: 2px;
     border-radius: 10px;
     cursor: pointer;
     transition: 0,5s;
