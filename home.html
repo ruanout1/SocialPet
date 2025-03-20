@@ -59,17 +59,36 @@
                 </div>
                 <div class="post-content">
                     <p>Cara de quem quer brincar haha.</p>
-                    <!-- Carrossel de imagens -->
-                    <div class="carousel">
-                        <div class="carousel-images">
-                            <img src="./assets/images/pages/home/postEstaticos/pexels-katlovessteve-551628.jpg"
-                                 alt="Imagem da postagem" class="carousel-images">
-                            <img src="./assets/images/pages/home/cachorro-border-collie-preto-e-branco-Petlove.jpeg"
-                                 alt="Imagem da postagem"  class="carousel-images"> 
-                        </div>
-                        <button class="prev" onclick="moveSlide(-1)"></button>
-                        <button class="next" onclick="moveSlide(1)"></button>
-                    </div>          
+
+                    <!-- Inicio Carrossel -->
+                <div class="slider">
+                    
+                    <div class="slides">
+                       <!--Radio Buttons-->
+                       <input type="radio" name="radio-btn" id="radio1">
+                       <input type="radio" name="radio-btn" id="radio2">
+                       <!--FIm Radio imagens-->
+
+                       <!--Slide Buttons-->
+                       <div class="slide first">
+                           <img src="./assets/images/pages/home/postEstaticos/pexels-katlovessteve-551628.jpg" alt="imagem1" />
+                       </div>
+                       <div class="slide first">
+                           <img src="./assets/images/pages/home/cachorro-border-collie-preto-e-branco-Petlove.jpeg" alt="imagem2" />
+                       </div>
+                            <!-- Fim Slide Imagens  -->
+                             <!--  Auto Navegacao   -->
+
+                       <div class="navigation-auto">
+                           <div class="auto-btn1"></div>
+                           <div class="auto-btn2"></div>
+                       </div>
+                    </div>
+
+                    <div class="manual-navigation">
+                        <label for="radio1" class="manual-btn" ></label>
+                        <label for="radio2" class="manual-btn" ></label>
+                    </div>
                 </div>
                 <div class="post-icons"> 
                     <div class="post-actions">
