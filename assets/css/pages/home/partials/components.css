@@ -56,8 +56,8 @@
 /* Carrossel*/
 .slider {
     margin: 0 auto;
-    width: 400px;
-    height: 200px;
+    width: 350px;
+    height: 300px;
     overflow: hidden;
 }
 .slides {
@@ -74,6 +74,7 @@
 .slide {
     width: 25%;
     position: relative;
+    transition: 1s;
 }
 
 .slide img{
@@ -83,7 +84,7 @@
 .manual-navigation {
     position: absolute;
     width: 400px;
-    margin-top: -100px;
+    margin-top: 0;
     display: flex;
     justify-content: center;
 }
@@ -109,10 +110,10 @@
 }
 
 #radio2:checked ~ .first{
-    margin-left: -50%;
+    margin-left: -25%;
 }
 #radio3:checked ~ .first{
-    margin-left: -25%;
+    margin-left: -50%;
 }
 
 .navigation-auto div{
@@ -126,7 +127,7 @@
 .navigation-auto{
     position: absolute;
     width: 400px;
-    margin-top: 200px;
+    margin-top: 300px;
     display: flex;
     justify-content: center;
 }
