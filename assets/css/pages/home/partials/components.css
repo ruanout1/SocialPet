@@ -82,14 +82,14 @@
 
 .manual-navigation {
     position: absolute;
-    width: 800px;
+    width: 400px;
     margin-top: -100px;
     display: flex;
     justify-content: center;
 }
 
 .manual-btn{
-    border: 1px solid black;
+    border: 1px solid rgb(74, 68, 68);
     padding: 5px;
     border-radius: 10px;
     cursor: pointer;
@@ -101,7 +101,7 @@
 }
 
 .manual-btn:hover{
-    background-color: #e9a769;
+    background-color: #74716f;
 }
 
 #radio1:checked ~ .first{
@@ -110,6 +110,41 @@
 
 #radio2:checked ~ .first{
     margin-left: -50%;
+}
+#radio3:checked ~ .first{
+    margin-left: -25%;
+}
+
+.navigation-auto div{
+    border: 1px solid rgb(64, 64, 71);
+    padding: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0,5s;
+}
+
+.navigation-auto{
+    position: absolute;
+    width: 400px;
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation-auto div:not(:last-child){
+    margin-right: 10px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+    background-color: #8c8885;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+    background-color: #8c8885;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+    background-color: #8c8885;
 }
 
 .post-content img {
