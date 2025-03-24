@@ -7,6 +7,7 @@
 }
 
 .post {
+    position: relative;
     align-self: center;
     border: 1px solid var(--post-border-color);
     border-radius: 8px;
@@ -59,6 +60,7 @@
     width: 350px;
     height: 300px;
     overflow: hidden;
+    position: relative;
 }
 .slides {
     width: 400%;
@@ -83,7 +85,8 @@
 
 .manual-navigation {
     position: absolute;
-    width: 400px;
+    width: 350px;
+    bottom: 10px;
     margin-top: 0;
     display: flex;
     justify-content: center;
@@ -126,7 +129,8 @@
 
 .navigation-auto{
     position: absolute;
-    width: 400px;
+    width: 100%;
+    bottom: 10px;
     margin-top: 300px;
     display: flex;
     justify-content: center;
@@ -147,6 +151,8 @@
 #radio3:checked ~ .navigation-auto .auto-btn3{
     background-color: #8c8885;
 }
+
+/* Fim carrosel */
 
 .post-content img {
     align-self: center;
