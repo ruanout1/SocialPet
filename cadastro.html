@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/pages/cadastro/cadastro.css">
     <title>Formulario de Cadastro</title>
+    <style>
+        /* Estilos para o modal de sucesso */
+        .success-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .success-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 400px;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .success-icon {
+            font-size: 60px;
+            color: #ff7043;
+            margin-bottom: 20px;
+        }
+        
+        .success-message {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
-
 <body>
     <main>
         <div class="main-sign">
@@ -16,24 +54,20 @@
                 <img src="./assets/images/pages/index/Cat and dog.gif" alt="SocialPet Logo">
                 <h1>Bem vindo<br><p>Crie uma conta e entre para a melhor comunidade para amantes dos pets do Brasil.</p></h1>
             </div>
-            <form action="home.html" class="right-sign">
+            <form id="cadastroForm" class="right-sign">
                 <div class="card-sign">
                     <h2>Crie sua conta</h2>
                     <div class="textfield">
-                       
-                        <input type="text" name="Nome" placeholder="Nome Completo">
+                        <input type="text" name="Nome" placeholder="Nome Completo" required>
                     </div>
                     <div class="textfield">
-                        
-                        <input type="email" name="Email" placeholder="Email">
+                        <input type="email" name="Email" placeholder="Email" required>
                     </div>
                     <div class="textfield">
-                        
-                        <input type="password" name="senha" placeholder="Senha">
+                        <input type="password" name="senha" placeholder="Senha" required>
                     </div>
                     <div class="textfield">
-                       
-                        <input type="password" name="ConfirmeSenha" placeholder="Confirme a senha">
+                        <input type="password" name="ConfirmeSenha" placeholder="Confirme a senha" required>
                         <a href="index.html">Já tem uma conta? Clique aqui</a>
                     </div>
                     <button type="submit" class="btn-sign">Cadastrar</button>
@@ -41,39 +75,54 @@
                     <button type="button" class="btn-google">
                         <img src="./assets/images/pages/index/Logo Google.png" alt="Google Logo"> Entrar com o Google
                     </button>
-
                 </div>
             </form>
         </div>
     </main>
+
+    <!-- Modal de sucesso -->
+    <div id="successModal" class="success-modal">
+        <div class="success-content">
+            <div class="success-icon">✓</div>
+            <h2 class="success-message">Cadastro concluído com sucesso!</h2>
+            <p>Redirecionando para escolha de perfil...</p>
+        </div>
+    </div>
+
     <footer>
-        <div class="boxs">
-            <h2>Inicio</h2>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Parcerias</a></li>
-                <li><a href="#">Movimentos</a></li>
-            </ul>
-        </div>
-        <div class="boxs">
-            <h2>Informações</h2>
-            <ul>
-                <li><a href="#">Sobre Nós</a></li>
-                <li><a href="#">Privacidade</a></li>
-                <li><a href="#">Termos</a></li>
-            </ul>
-        </div>
-        <div class="boxs">
-            <h2>Suporte</h2>
-            <ul>
-                <li><a href="#">Denúncia</a></li>
-                <li><a href="#">Ouvidoria</a></li>
-                <li><a href="#"></a></li>
-            </ul>
-        </div>
-        
+        <!-- ... (seu footer atual) ... -->
     </footer>
 
-</body>
+    <script>
+        document.getElementById('cadastroForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Validação dos campos
+            const nome = document.querySelector('input[name="Nome"]').value;
+            const email = document.querySelector('input[name="Email"]').value;
+            const senha = document.querySelector('input[name="senha"]').value;
+            const confirmaSenha = document.querySelector('input[name="ConfirmeSenha"]').value;
 
+            if (!nome || !email || !senha || !confirmaSenha) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            if (senha !== confirmaSenha) {
+                alert("As senhas não coincidem!");
+                return;
+            }
+
+            // Mostra o modal de sucesso
+            const modal = document.getElementById('successModal');
+            modal.style.display = 'flex';
+
+            // Simula o processamento do cadastro (2 segundos)
+            setTimeout(() => {
+                // Redireciona após mostrar o feedback
+                window.location.href = "perfil-escolha.html";
+            }, 2000);
+        });
+    </script>
+</body>
 </html>

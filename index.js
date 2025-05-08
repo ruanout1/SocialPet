@@ -164,7 +164,7 @@ function cadastrarPet(event) {
     }));
 
     alert("Pet cadastrado com sucesso!");
-    window.location.href = "home.html";
+    window.location.href = "profile.html"; 
 }
 
 function validatePetForm() {
@@ -187,16 +187,16 @@ function vincularEventosGerais() {
     const petForm = document.getElementById("cadastroPetForm");
     if (petForm) {
         petForm.addEventListener("submit", cadastrarPet);
-        // Validação em tempo real
         document.getElementById("pet-name")?.addEventListener("input", validatePetForm);
         document.getElementById("pet-username")?.addEventListener("input", validatePetForm);
         document.getElementById("pet-raca")?.addEventListener("change", validatePetForm);
     }
 
-    // Botões de salvar genéricos
+    // Botões de salvar genéricos (ONG, Petshop, etc.)
     document.querySelectorAll('#save-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             alert('Dados salvos com sucesso!');
+            window.location.href = "profile.html";  // Adicionado redirecionamento
         });
     });
 }
