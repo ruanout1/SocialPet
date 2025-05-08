@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Pet Shop</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro - Pet Shop</h2>
+
+    <label for="nome">Nome do Pet Shop</label>
+    <input type="text" id="nome" placeholder="Digite o nome do pet shop" required>
+
+    <label for="cnpj">CNPJ</label>
+    <input type="text" id="cnpj" placeholder="Digite o CNPJ" required>
+
+    <label>Produtos e Serviços</label>
+    <div class="dropdown-checklist" id="produtos-servicos-dropdown">
+      <div class="dropdown-text">
+        <span>Selecione produtos e serviços</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="dropdown-options">
+        <label><input type="checkbox" name="produtos-servicos" value="Rações"> Rações</label>
+        <label><input type="checkbox" name="produtos-servicos" value="Brinquedos"> Brinquedos</label>
+        <label><input type="checkbox" name="produtos-servicos" value="Banho e Tosa"> Banho e Tosa</label>
+        <label><input type="checkbox" name="produtos-servicos" value="Acessórios"> Acessórios</label>
+        <label><input type="checkbox" name="produtos-servicos" value="Medicamentos"> Medicamentos</label>
+      </div>
+    </div>
+
+    <label>Animais Atendidos</label>
+    <div class="dropdown-checklist" id="animais-atendidos-dropdown">
+      <div class="dropdown-text">
+        <span>Selecione os animais atendidos</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="dropdown-options">
+        <label><input type="checkbox" name="animais" value="Cães"> Cães</label>
+        <label><input type="checkbox" name="animais" value="Gatos"> Gatos</label>
+        <label><input type="checkbox" name="animais" value="Roedores"> Roedores</label>
+        <label><input type="checkbox" name="animais" value="Aves"> Aves</label>
+        <label><input type="checkbox" name="animais" value="Répteis"> Répteis</label>
+        <label><input type="checkbox" name="animais" value="Outros"> Outros</label>
+      </div>
+    </div>
+
+    <label for="contato">Contato</label>
+    <input type="text" id="contato" placeholder="Telefone, WhatsApp etc." required>
+
+    <label for="redes">Redes Sociais</label>
+    <input type="text" id="redes" placeholder="Ex: @petshop no Instagram, Facebook etc.">
+
+    <button type="button" id="save-btn">Salvar</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
+

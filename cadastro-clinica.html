@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Clínica Veterinária</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro - Clínica Veterinária</h2>
+
+    <label for="nome">Nome da Clínica</label>
+    <input type="text" id="nome" placeholder="Digite o nome da clínica" required>
+
+    <label for="cnpj">CNPJ</label>
+    <input type="text" id="cnpj" placeholder="Digite o CNPJ" required>
+
+    <label>Serviços Oferecidos</label>
+    <div class="dropdown-checklist" id="servicos-dropdown">
+      <div class="dropdown-text">
+        <span>Selecione os serviços oferecidos</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="dropdown-options">
+        <label><input type="checkbox" name="servicos" value="Consulta Clínica"> Consulta Clínica</label>
+        <label><input type="checkbox" name="servicos" value="Vacinação"> Vacinação</label>
+        <label><input type="checkbox" name="servicos" value="Exames"> Exames</label>
+        <label><input type="checkbox" name="servicos" value="Cirurgias"> Cirurgias</label>
+        <label><input type="checkbox" name="servicos" value="Internação"> Internação</label>
+      </div>
+    </div>
+
+    <label for="endereco">Endereço</label>
+    <input type="text" id="endereco" placeholder="Rua, número, bairro, cidade" required>
+
+    <label for="contato">Contato</label>
+    <input type="text" id="contato" placeholder="Telefone, WhatsApp etc." required>
+
+    <button type="button" id="save-btn">Salvar</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
+
+
