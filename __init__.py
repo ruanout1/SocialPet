@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from flask_bcrypt import Bcrypt
 import os
+from SocialPet.routes import auth_bp as routes_bp
 
 # Instanciando os objetos fora da funcao para uso global
 database = SQLAlchemy()
@@ -28,7 +29,7 @@ def create_app():
 
     
       # Importa as todas
-    from SocialPet.routes import bp as routes_bp
+    
     app.register_blueprint(routes_bp)  
     
     with app.app_context():
