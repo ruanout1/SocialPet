@@ -1,6 +1,6 @@
 # criar as rotas do site
 from flask import render_template, url_for, flash, request, redirect, Blueprint
-from SocialPet import database, bcrypt
+from SocialPet.db import get_db
 from flask_login import login_required, login_user, logout_user
 from SocialPet.forms import FormLogin, FormCadastro
 from SocialPet.models import Usuario
@@ -31,6 +31,7 @@ def cadastro():
             email=form.email.data,
             senha_hash=senha_hash
         )
+        database = get_db()
         database.session.add(usuario)
         database.session.commit()
         flash("Conta criada com sucesso! Faça login.", "success")
