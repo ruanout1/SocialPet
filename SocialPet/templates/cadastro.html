@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./assets/css/pages/cadastro/cadastro.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/cadastro/cadastro.css') }}">
     <title>Formulario de Cadastro</title>
 </head>
 
@@ -13,7 +13,7 @@
     <main>
         <div class="main-sign">
             <div class="left-sign">
-                <img src="./assets/images/pages/index/Cat and dog.gif" alt="SocialPet Logo">
+                <img src="{{ url_for('static', filename='images/pages/index/Cat and dog.gif') }}" alt="SocialPet Logo">
                 <h1>Bem vindo<br><p>Crie uma conta e entre para a melhor comunidade para amantes dos pets do Brasil.</p></h1>
             </div>
             <form action="home.html" class="right-sign">
@@ -39,7 +39,7 @@
                     <button type="submit" class="btn-sign">Cadastrar</button>
                     <p class="google-login-text">OU</p>
                     <button type="button" class="btn-google">
-                        <img src="./assets/images/pages/index/Logo Google.png" alt="Google Logo"> Entrar com o Google
+                        <img src="{{ url_for('static', filename='images/pages//index/Logo Google.png') }}" alt="Google Logo"> Entrar com o Google
                     </button>
 
                 </div>
