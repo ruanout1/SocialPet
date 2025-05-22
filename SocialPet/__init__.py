@@ -1,16 +1,23 @@
 # -*- coding: utf-8 -*-
 
 from flask import Flask
-from flask_bcrypt import Bcrypt
 import os
-from SocialPet.routes import auth_bp as routes_bp
+
+from .ext import db
+from flask_bcrypt import Bcrypt 
 from flask_login import LoginManager
-from SocialPet.models import Usuario
+from .routes import auth_bp 
+from .models import Usuario
+from dotenv import load_dotenv
+
+load_dotenv()
+
 
 # Instanciando os objetos fora da funcao para uso global
-bcrypt = Bcrypt()
+
 login_manager = LoginManager()
-login_manager.login_view = "routes.login"
+bcrypt = Bcrypt()
+
 
 def create_app():
     app = Flask(__name__)
@@ -20,16 +27,21 @@ def create_app():
      # Boa pratica para evitar warning
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     
-    app.register_blueprint(routes_bp)
+    
 
     # Inicializa com o app
     bcrypt.init_app(app)
     login_manager.init_app(app)
-
-    from . import db
     db.init_app(app)
 
-    return app    
+    
+
+    app.register_blueprint(auth_bp)
+    
+
+    return app   
+
+
 
 @login_manager.user_loader
 def load_usuario(id_usuario):
