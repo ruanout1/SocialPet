@@ -23,7 +23,7 @@ def create_app():
     app = Flask(__name__)
     # Configuracao da conexao com MySQL usando PyMySQL
     app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY", "dev_key")
-    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "mysql+pymysql://usuario:senha@localhost/socialpet")
+    app.config["SQLALCHEMY_DATABASE_URI"] = os.environ.get("DATABASE_URL", "mysql+pymysql://root:12345678@localhost/SocialPet")
      # Boa pratica para evitar warning
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     

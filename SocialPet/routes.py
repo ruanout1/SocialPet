@@ -29,8 +29,8 @@ def cadastro():
         # Cria usuario com senha hasheada
         senha_hash = bcrypt.generate_password_hash(form.senha.data).decode("utf-8")
         usuario = Usuario(
-            username=form.username.data,
-            email=form.email.data,
+            nome_usuario=form.username.data,
+            email_usuario=form.email.data,
             senha_hash=senha_hash
         )
         

@@ -19,7 +19,7 @@ class FormCadastro(FlaskForm):
     botao_confirma = SubmitField("Cadastrar")
 
     def validate_email(self, email):
-        usuario = Usuario.query.filter_by(email=email.data).first()
+        usuario = Usuario.query.filter_by(email_usuario=email.data).first()
         if usuario:
             raise ValidationError("E-mail ja cadastrado, faca login para continuar")
 
