@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Veterinário</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro - Veterinário</h2>
+
+    <label for="nome">Nome</label>
+    <input type="text" id="nome" placeholder="Digite seu nome completo" required>
+
+    <label for="crmv">Registro Profissional (CRMV)</label>
+    <input type="text" id="crmv" placeholder="Número do CRMV" required>
+    
+    <label>Especialidades</label>
+    <div class="dropdown-checklist" id="especialidades-dropdown">
+      <div class="dropdown-text">
+        <span>Selecione as especialidades</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="dropdown-options">
+        <label><input type="checkbox" name="especialidades" value="Clínico Geral"> Clínico Geral</label>
+        <label><input type="checkbox" name="especialidades" value="Dermatologia"> Dermatologia</label>
+        <label><input type="checkbox" name="especialidades" value="Oftalmologia"> Oftalmologia</label>
+        <label><input type="checkbox" name="especialidades" value="Cardiologia"> Cardiologia</label>
+        <label><input type="checkbox" name="especialidades" value="Cirurgia"> Cirurgia</label>
+      </div>
+    </div>
+
+    <label>Tipos de Atendimento</label>
+    <div class="dropdown-checklist" id="atendimento-dropdown">
+      <div class="dropdown-text">
+        <span>Selecione os tipos de atendimento</span>
+        <span class="dropdown-arrow">▼</span>
+      </div>
+      <div class="dropdown-options">
+        <label><input type="checkbox" name="atendimento" value="Consultas"> Consultas</label>
+        <label><input type="checkbox" name="atendimento" value="Cirurgias"> Cirurgias</label>
+        <label><input type="checkbox" name="atendimento" value="Exames"> Exames</label>
+        <label><input type="checkbox" name="atendimento" value="Domiciliar"> Atendimento Domiciliar</label>
+        <label><input type="checkbox" name="atendimento" value="Urgência/Emergência"> Urgência/Emergência</label>
+      </div>
+    </div>
+
+    <label for="locais">Locais de Atendimento</label>
+    <input type="text" id="locais" placeholder="Endereço(s), cidade, região..." required>
+
+    <button type="button" id="save-btn">Salvar</button>
+  </div>
+  <script src="index.js"></script>
+</body>
+</html>
+

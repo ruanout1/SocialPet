@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - ONG</title>
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Cadastro da ONG</h2>
+
+    <label for="nome-ong">Nome da ONG:</label>
+    <input type="text" id="nome-ong" name="nome" placeholder="Digite o nome da ONG" required>
+
+    <label for="area">Área de Atuação:</label>
+    <input type="text" id="area" name="area" placeholder="Ex: Resgate de animais, adoção, etc." required>
+
+    <label for="missao">Missão da ONG:</label>
+    <textarea id="missao" name="missao" placeholder="Descreva a missão da ONG" rows="4" required></textarea>
+
+    <label>Formas de Apoio:</label>
+    <div class="dropdown-checklist" id="apoio-dropdown">
+        <div class="dropdown-text">
+            <span>Selecione as formas de apoio</span>
+            <span class="dropdown-arrow">▼</span>
+        </div>
+        <div class="dropdown-options">
+            <label><input type="checkbox" name="apoio" value="Doações"> Doações</label>
+            <label><input type="checkbox" name="apoio" value="Voluntariado"> Voluntariado</label>
+            <label><input type="checkbox" name="apoio" value="Adoção"> Adoção</label>
+            <label><input type="checkbox" name="apoio" value="Parcerias"> Parcerias</label>
+        </div>
+    </div>
+
+    <button type="button" id="save-btn">Salvar</button>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
+
+  

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Empresa</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastro - Empresa</h2>
+        
+        <label for="nome">Nome da Empresa</label>
+        <input type="text" id="nome" placeholder="Digite o nome da empresa" required>
+
+        <label>Área de Atuação</label>
+        <div class="dropdown-checklist" id="area-atuacao-dropdown">
+            <div class="dropdown-text">
+                <span>Selecione as áreas de atuação</span>
+                <span class="dropdown-arrow">▼</span>
+            </div>
+            <div class="dropdown-options">
+                <label><input type="checkbox" name="area-atuacao" value="Adestramento"> Adestramento</label>
+                <label><input type="checkbox" name="area-atuacao" value="Passeador de Pets"> Passeador de Pets</label>
+                <label><input type="checkbox" name="area-atuacao" value="Pet Sitter"> Pet Sitter</label>
+                <label><input type="checkbox" name="area-atuacao" value="Transporte Animal"> Transporte Animal</label>
+                <label><input type="checkbox" name="area-atuacao" value="Outros"> Outros</label>
+            </div>
+        </div>
+
+        <label for="cnpj">CNPJ</label>
+        <input type="text" id="cnpj" placeholder="Digite o CNPJ" required>
+
+        <label for="redes-sociais">Redes Sociais</label>
+        <input type="text" id="redes-sociais" placeholder="Ex: @empresa no Instagram, Facebook, etc.">
+
+        <button type="button" id="save-btn">Salvar</button>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
+
