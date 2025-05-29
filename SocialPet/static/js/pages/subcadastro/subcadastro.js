@@ -21,12 +21,12 @@ function escolherPerfil(tipoPerfil) {
     localStorage.setItem("userProfile", tipoPerfil);
 
     const paginas = {
-        pet: "cadastro-pet.html",
-        empresa: "cadastro-empresa.html",
-        ong: "cadastro-ong.html",
-        petshop: "cadastro-petshop.html",
-        veterinario: "cadastro-veterinario.html",
-        clinica: "cadastro-clinica.html"
+        pet: "/cadastro-pet",
+        empresa: "/cadastro-empresa",
+        ong: "/cadastro-ong",
+        petshop: "/cadastro-petshop",
+        veterinario: "/cadastro-veterinario",
+        clinica: "/cadastro-clinica"
     };
 
     if (paginas[tipoPerfil]) {

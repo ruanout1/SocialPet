@@ -19,4 +19,6 @@ class Usuario(db.Model, UserMixin):
     data_cadastro = db.Column(db.DateTime, default=datetime.utcnow)
 
 
- 
+    @property
+    def id(self):
+        return self.id_usuario

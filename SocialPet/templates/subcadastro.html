@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Escolha seu Perfil</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/subcadastro/subcadastro.css') }}">
 </head>
 <body>
     <div class="container">
@@ -15,32 +15,32 @@
             <!-- Primeira linha -->
             <div class="perfil-row">
                 <button class="perfil-btn" onclick="escolherPerfil('pet')">
-                    <img src="icons/pet.png" alt="Ícone Pet"> Pet
+                    <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/pet.png') }}" alt="Ícone Pet"> Pet
                 </button>
                 <button class="perfil-btn" onclick="escolherPerfil('ong')">
-                    <img src="icons/ong.png" alt="Ícone ONG"> ONG
+                    <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/ong.png') }}" alt="Ícone ONG"> ONG
                 </button>
                 <button class="perfil-btn" onclick="escolherPerfil('empresa')">
-                   <img src="icons/empresa.png" alt="Ícone Empresa"> Empresa
+                   <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/empresa.png') }}" alt="Ícone Empresa"> Empresa
                 </button>
             </div>
             
             <!-- Segunda linha -->
             <div class="perfil-row">
                 <button class="perfil-btn" onclick="escolherPerfil('petshop')">
-                   <img src="icons/petshop.png" alt="Ícone Pet Shop"> Pet Shop
+                   <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/petshop.png') }}" alt="Ícone Pet Shop"> Pet Shop
                 </button>
                 <button class="perfil-btn" onclick="escolherPerfil('veterinario')">
-                   <img src="icons/veterinario.png" alt="Ícone Veterinário"> Veterinário(a)
+                   <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/veterinario.png') }}" alt="Ícone Veterinário"> Veterinário(a)
                 </button>
                 <button class="perfil-btn" onclick="escolherPerfil('clinica')">
-                   <img src="icons/clinica.png" alt="Ícone Clínica Veterinária"> Clínica Veterinária
+                   <img src="{{ url_for('static', filename='images/pages/subcadastro/icons/clinica.png') }}" alt="Ícone Clínica Veterinária"> Clínica Veterinária
                 </button>
             </div>
         </div>
     </div>
 
-    <script src="index.js"></script>
+    <script src="{{ url_for('static', filename='js/pages/subcadastro/subcadastro.js') }}"></script>
 </body>
 </html>
 

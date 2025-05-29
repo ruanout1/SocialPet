@@ -21,16 +21,17 @@
             novamente.
           </h1>
         </div>
-        <form action="home.html" class="right-login">
+        <form method="POST" action="{{ url_for('routes.login') }}" class="right-login">
+          {{ form.hidden_tag() }}
           <div class="card-login">
             <h2>Entre na sua conta</h2>
             <div class="textfield">
-              <label for="usuario">Usuario:</label>
-              <input type="text" name="Usuario" placeholder="Usuario" />
+              {{ form.email.label }}<br>
+              {{ form.email(placeholder="Digite seu e-mail") }}
             </div>
             <div class="textfield">
-              <label for="password">Senha:</label>
-              <input type="password" name="senha" placeholder="Senha" />
+              {{ form.senha.label }}<br>
+              {{ form.senha(placeholder="Digite sua senha") }}
               <a href="#">esqueceu a senha?</a>
             </div>
             <div class="checkfield">
@@ -38,9 +39,9 @@
               <input type="checkbox" name="" id="" />
             </div>
             <div class="textfield-sign">
-              <a href="cadastro.html">Não tem conta? clique aqui</a>
+              <a href="{{ url_for('routes.cadastro') }}">Não tem conta? clique aqui</a>
             </div>
-            <button type="submit" class="btn-login">Entrar</button>
+            {{ form.botao_confirma(class_="btn-login") }}
           </div>
         </form>
       </div>
