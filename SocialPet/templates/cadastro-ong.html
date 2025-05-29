@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro - ONG</title>
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/subcadastro/subcadastro.css') }}">
 </head>
 <body>
   <div class="container">
@@ -36,7 +36,7 @@
     <button type="button" id="save-btn">Salvar</button>
   </div>
 
-  <script src="index.js"></script>
+  <script src="{{ url_for('static', filename='js/pages/subcadastro/subcadastro.js') }}"></script>
 </body>
 </html>
 
