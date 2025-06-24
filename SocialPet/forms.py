@@ -1,8 +1,9 @@
 # criar formularios do site
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from wtforms import StringField, PasswordField, SubmitField, RadioField, SelectField
 from wtforms.validators import DataRequired, Email, EqualTo, Length, ValidationError
 from SocialPet.models import Usuario
+from flask_wtf.file import FileField, FileAllowed
 
 
 class FormLogin(FlaskForm):
@@ -23,3 +24,17 @@ class FormCadastro(FlaskForm):
         if usuario:
             raise ValidationError("E-mail ja cadastrado, faca login para continuar")
 
+class FormCadastroPet(FlaskForm):
+    nome_pet = StringField("Nome do Pet", validators=[DataRequired()])
+    username_pet = StringField("Username do Pet", validators=[DataRequired()])
+    especie = RadioField("Espécie", 
+                       choices=[('cachorro', 'Cachorro'), 
+                                ('gato', 'Gato'),
+                                ('outra', 'Outra')],
+                       validators=[DataRequired()])
+    raca = SelectField("Raça", 
+                      choices=[],  # Será preenchido dinamicamente
+                      validators=[DataRequired()])
+    foto_pet = FileField("Foto do Pet", 
+                        validators=[FileAllowed(['jpg', 'png', 'jpeg'])])
+    botao_submit = SubmitField("Salvar")

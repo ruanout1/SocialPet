@@ -7,6 +7,7 @@ from .ext import db
 from flask_bcrypt import Bcrypt 
 from flask_login import LoginManager
 from .routes import auth_bp 
+from SocialPet.routes import main_bp
 from .models import Usuario
 from dotenv import load_dotenv
 
@@ -37,6 +38,7 @@ def create_app():
     
 
     app.register_blueprint(auth_bp)
+    app.register_blueprint(main_bp)
     
 
     return app   

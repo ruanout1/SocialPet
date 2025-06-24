@@ -10,7 +10,7 @@
     <title>Home - SocialPet</title>
 </head>
 
-<body>
+<body data-username="rannyara01">
     <header class="header">
         <!-- Botão do menu hamburguer -->
         <button class="menu-toggle" id="menuToggle">
@@ -43,7 +43,7 @@
                     <a href="./market.html"><i class="bi bi-shop"></i>Market</a>
                 </li>
                 <li>
-                    <a href="./cadastro.html"><i class="bi bi-exit"></i>Sair</a>
+                    <a href="{{ url_for('auth.logout') }}"><i class="bi bi-exit"></i>Sair</a>
                 </li>
             </ul>
         </nav>
@@ -51,6 +51,37 @@
     <!-- Primeira postagem -->
     <main>
         <section class="feed">
+            {% if posts_usuario %}
+                {% for post in posts_usuario %}
+                <article class="post">
+                    <div class="post-header">
+                        <img src="{{ url_for('static', filename='images/perfil.png') }}" class="img-user-post" alt="Foto de perfil">
+                        <div class="user-info">
+                            <h3>{{ current_user.nome_usuario }}</h3>
+                            <p>{{ post.hora_postagem.strftime('%d/%m %H:%M') }}</p>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>{{ post.legenda_post }}</p>
+                        {% if post.img_post %}
+                        <img src="{{ url_for('static', filename='uploads/pets/' + post.img_post) }}" alt="Imagem do post">
+                        {% endif %}
+                    </div>
+                    <div class="post-icons"> 
+                        <div class="post-actions">
+                            <button type="button" class="files-post like"><i class="fa fa-paw like-icon"></i> <span>0</span></button>
+                            <button type="button" class="files-post direct"><img src="{{ url_for('static', filename='images/pages/home/icons/chat.svg') }}" alt="Comentar"><span>0</span></button>
+                            <button type="button" class="files-post share"><img src="{{ url_for('static', filename='images/pages/home/icons/share.svg') }}" alt="Compartilhar"><span>0</span></button>
+                        </div>
+                        <div class="save-post">
+                            <button><img src="{{ url_for('static', filename='images/pages/home/icons/bookmark.svg') }}" alt=""></button>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            {% else %}  
+                <p>Você ainda não fez nenhuma postagem</p>
+            {% endif %}
             <article class="post">
                 <div class="post-header">
                     <img src="{{ url_for('static', filename='images/pages/home/postEstaticos/Perfil Caique.jpg') }}"
@@ -62,6 +93,9 @@
                 </div>
                 <div class="post-content">
                     <p>#tbt do final de semana.</p>
+                      <img src="{{ url_for('static', filename='images/pages/home/postEstaticos/pexels-pixabay-160846.jpg') }}" alt="Imagem da postagem">
+                     
+                    <!-- Se tiver múltiplas imagens, dá pra fazer um carrossel similar ao estático -->
 
                     <!-- Inicio Carrossel -->
                     <div class="slider">
@@ -233,12 +267,12 @@
         </section>
 
         <div class="new-post">
-            <form action="" class="formPost" id="formPost">
+            <form action="{{ url_for('main.criar_post') }}" method="POST" enctype="multipart/form-data" class="formPost" id="formPost">
                 <!-- Pré-visualização da imagem -->
                 <div id="selectedImagePreview" style="display: none">
                     <img id="imagePreview" src="" alt="Imagem Selecionada" style="max-width: 100%; height: auto" />
                 </div>
-                <textarea name="textarea" placeholder="..." id="textarea"></textarea>
+                <textarea name="legenda" placeholder="Escreva uma legenda..." id="textarea"></textarea>
 
                 <!--Ícones e botões do post-->
                 <div class="icons-and-button">
@@ -247,7 +281,7 @@
                         <button class="btn-file-form" type="button" id="btnUploadImage">
                             <i class="fa fa-paperclip"></i>
                         </button>
-                        <input type="file" id="uploadMediaInput" style="display: none" accept="image/*,video/*,.gif"
+                        <input type="file" id="uploadMediaInput" name="imagem" style="display: none" accept="image/*,video/*,.gif"
                             multiple />
                     </div>
 
@@ -286,6 +320,8 @@
         </div>
     </aside>
 
-    <script type="module" src="{{ url_for('static', filename='images/pages/home/home.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='js/pages/home/home.js') }}"></script>
+
+</body>    
 
 </html>

@@ -2,7 +2,7 @@
 <html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE-edge" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/pages/index/index.css') }}" />
     <title>Bem vindo ao SocialPet</title>
@@ -21,7 +21,7 @@
             novamente.
           </h1>
         </div>
-        <form method="POST" action="{{ url_for('routes.login') }}" class="right-login">
+        <form method="POST" action="{{ url_for('auth.login') }}" class="right-login">
           {{ form.hidden_tag() }}
           <div class="card-login">
             <h2>Entre na sua conta</h2>
@@ -39,7 +39,7 @@
               <input type="checkbox" name="" id="" />
             </div>
             <div class="textfield-sign">
-              <a href="{{ url_for('routes.cadastro') }}">Não tem conta? clique aqui</a>
+              <a href="{{ url_for('auth.cadastro') }}">Não tem conta? clique aqui</a>
             </div>
             {{ form.botao_confirma(class_="btn-login") }}
           </div>
