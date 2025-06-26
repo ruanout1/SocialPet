@@ -35,7 +35,7 @@
                     <div class="textfield">
                        
                         {{ form.confirmacao_senha(class="form-control", placeholder="Confirme a senha") }}
-                        <a href="{{ url_for('routes.login') }}">Já tem uma conta? Clique aqui</a>
+                        <a href="{{ url_for('auth.login') }}">Já tem uma conta? Clique aqui</a>
                     </div>
                     {{ form.botao_confirma(class="btn-sign") }}
                     <p class="google-login-text">OU</p>

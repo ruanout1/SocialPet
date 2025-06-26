@@ -16,13 +16,18 @@ const addLikePost = () => {
             likeIcon.classList.toggle('liked');
             const likeCountSpan = likeButton.querySelector('span');
             if (likeCountSpan) {
-                let likesCount = parseInt(likeCountSpan.textContent.replace('', ''));
+                let likesCount = parseInt(likeCountSpan.textContent.replace(/[^\d]/g, '')) || 0;
                 likesCount = likeIcon.classList.contains('liked') ? likesCount + 1 : likesCount - 1;
                 likeCountSpan.textContent = `${likesCount}`;
             }
         }
     });
 };
+
+// Nome do usuario dinamico
+
+const username = document.body.dataset.username || 'usuario';
+
 
 // Função para validar o campo de texto
 const formValidate = (value) => value && value.trim().length >= 3;
@@ -83,61 +88,15 @@ const addUploadButtonHandler = () => {
 // Função para gerenciar o envio do formulário
 const addSubmitHandler = () => {
     form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        if (formValidate(textarea.value)) {
-            const time = getTime();
-            const newPost = document.createElement('article');
-            newPost.classList.add('post');
-
-            // Gera números aleatórios para Curtir, Comentar e Compartilhar
-            const likes = getRandomNumber(1, 10);
-            const comments = getRandomNumber(100, 525);
-            const shares = getRandomNumber(50, 150);
-
-            let postContent = `
-                <div class="post-header">
-                    <img src="/SocialPet/assets/images/pages/home/77fb45d1b36125547c4c2bf0640252b3.jpg" class="img-user-post" alt="Foto de perfil">
-                    <div class="user-info">
-                        <h3>rannyara01</h3>
-                        <p>${time}</p>
-                    </div>
-                </div>
-                <div class="post-content">
-                    <p>${textarea.value}</p>
-            `;
-
-            // Adiciona a mídia selecionada (imagens e vídeos)
-            selectedMedia.forEach((media) => {
-                if (media.type.startsWith('image/')) {
-                    postContent += `<img src="${media.src}" alt="Imagem da postagem" style="max-width: 100%; max-height: 400px; object-fit: contain; margin-top: 10px;">`;
-                } else if (media.type.startsWith('video/')) {
-                    postContent += `<video src="${media.src}" style="max-width: 100%; max-height: 400px; object-fit: contain; margin-top: 10px;" controls></video>`;
-                }
-            });
-
-            postContent += `
-                </div>
-                <div class="post-actions">
-                    <button type="button" class="files-post like"><i class="fa fa-paw like-icon"></i><span>${likes}k</span></button>
-                    <button type="button" class="files-post direct"><img src="/SocialPet/assets/images/pages/home/icons/chat.svg" alt="Comentar"><span>${comments}</span></button>
-                    <button type="button" class="files-post share"><img src="/SocialPet/assets/images/pages/home/icons/share.svg" alt="Compartilhar"><span>${shares}</span></button>
-                </div>
-            `;
-
-            newPost.innerHTML = postContent;
-            ulPost.append(newPost);
-
-            // Limpar os campos após o envio
-            textarea.value = "";
-            previewContainer.innerHTML = "";
-            previewContainer.style.display = 'none';
-            selectedMedia = [];
-        } else {
+        if (!formValidate(textarea.value)) {
+            //event.preventDefault(); // só bloqueia se o texto for inválido
             alert('Verifique o campo digitado. O texto deve ter pelo menos 3 caracteres.');
         }
+        // Se passar na validação, o form envia normalmente pro backend.
+        // Não criamos post localmente aqui, o backend vai recarregar a página com o novo post.
     });
 };
+
 
 // Chama as funções de gerenciamento
 handleFileSelect();
