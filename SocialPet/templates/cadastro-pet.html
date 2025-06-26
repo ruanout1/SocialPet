@@ -8,52 +8,54 @@
 </head>
 <body>
     <div class="container">
-        <h1>A aventura começa agora, Bem vindo(a), <span class="username">Nome do Usuário</span>!</h1>
-        <p>Está na hora de registrar seu pet:</p>
-        
+        <h1>A aventura começa agora! <span class="username">{{ current_user.username }}</span></h1>
+        <p class="intro-text">Registre seu pet.</p>
+    
         <form method="POST" action="{{ url_for('auth.cadastro_pet') }}" enctype="multipart/form-data">
             
-            <div class="form-group">
-                <label for="pet-name">Nome do pet</label>
-                <input type="text" id="pet-name" name="pet_name" placeholder="Digite o nome do seu pet" oninput="validateForm()">
+            <div class="textfield">
+                <label for="pet-name">Nome</label>
+                <input type="text" id="pet-name" name="pet_name" class="form-control" placeholder="Digite o nome do seu pet">
             </div>
-
-            <div class="form-group">
-                <label for="pet-username">Username do pet</label>
-                <input type="text" id="pet-username" name="pet_username" placeholder="@apelidomeupet" oninput="validateForm()">
+    
+            <div class="textfield">
+                <label for="pet-username">Apelido</label>
+                <input type="text" id="pet-username" name="pet_username" class="form-control" placeholder="@apelidomeupet">
             </div>
-
-            <div class="form-group">
-                <label for="especie">Espécie</label>
-                <select id="especie" name="especie" onchange="validateForm()">
-                    <option value="">Escolha a espécie</option>
-                    {% for especie in especies %}
-                        <option value="{{ especie.id_especie }}">{{ especie.nome_especie }}</option>
-                    {% endfor %}
-                </select>
+    
+            <div class="form-row">
+                <div class="textfield">
+                    <label for="especie">Espécie</label>
+                    <select id="especie" name="especie" class="form-control">
+                        <option value="">Escolha a espécie</option>
+                        {% for especie in especies %}
+                            <option value="{{ especie.id_especie }}">{{ especie.nome_especie }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            
+                <div class="textfield">
+                    <label for="pet-raca">Raça</label>
+                    <select id="pet-raca" name="pet_raca" class="form-control">
+                        <option value="">Escolha a raça</option>
+                        {% for raca in racas %}
+                            <option value="{{ raca.id_raca }}">{{ raca.nome_raca }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            
+                <div class="textfield">
+                    <label for="data-nasc">Nascimento</label>
+                    <input type="date" id="data-nasc" name="data_nasc" class="form-control" required>
+                </div>
             </div>
-
-            <div class="form-group">
-                <label for="pet-raca">Raça</label>
-                <select id="pet-raca" name="pet_raca" onchange="validateForm()">
-                    <option value="">Escolha a raça do seu pet</option>
-                    {% for raca in racas %}
-                        <option value="{{ raca.id_raca }}">{{ raca.nome_raca }}</option>
-                    {% endfor %}  
-                </select>
+    
+            <div class="textfield">
+                <label for="foto-pet">Foto</label>
+                <input type="file" id="foto-pet" name="foto_pet" class="form-control" accept="image/*" required>
             </div>
-
-            <div class="form-group">
-                <label for="data-nasc">Data de nascimento</label>
-                <input type="date" id="data-nasc" name="data_nasc" required>
-            </div>
-
-            <div class="form-group">
-                <label for="foto-pet">Foto do pet</label>
-                <input type="file" id="foto-pet" name="foto_pet" accept="image/*" required>
-            </div>
-
-            <div class="form-group">
+    
+            <div class="textfield">
                 <button id="save-btn" type="submit">Salvar</button>
             </div>
         </form>  

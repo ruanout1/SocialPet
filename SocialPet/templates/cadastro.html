@@ -14,7 +14,7 @@
         <div class="main-sign">
             <div class="left-sign">
                 <img src="{{ url_for('static', filename='images/pages/index/Cat and dog.gif') }}" alt="SocialPet Logo">
-                <h1>Bem vindo<br><p>Crie uma conta e entre para a melhor comunidade para amantes dos pets do Brasil.</p></h1>
+                <h1>Bem-vindo!<br><p>Crie sua conta e venha fazer parte da melhor comunidade para quem ama pets no Brasil!</p></h1>
             </div>
             <form method="POST" class="right-sign">
                 {{ form.hidden_tag() }}
@@ -26,11 +26,15 @@
                     </div>
                     <div class="textfield">
                         
-                        {{ form.email(class="form-control", placeholder="Email") }}
+                        {{ form.email(class="form-control", placeholder="Email", id="email") }}
+                        <!-- Mensagem de erro do e-mail -->
+                        <span class="mensagem-erro" id="erro-email"></span>
                     </div>
                     <div class="textfield">
                         
-                        {{ form.senha(class="form-control", placeholder="Senha") }}
+                        {{ form.senha(class="form-control", placeholder="Senha", id="senha") }}
+                        <!-- Mensagem de erro da senha -->
+                        <span class="mensagem-erro" id="erro-senha"></span>
                     </div>
                     <div class="textfield">
                        
@@ -74,6 +78,7 @@
         </div>
         
     </footer>
+<script src="{{ url_for('static', filename='js/pages/cadastro/cadastro.js') }}"></script>
 
 </body>
 

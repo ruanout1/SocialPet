@@ -111,5 +111,14 @@
     box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.15);
 }
 
+/* feedback de senha ou email errados */
+.mensagem-erro {
+    color: red;
+    font-size: 0.9rem;
+    display: none;
+    margin-top: 5px;
+  }
+  
+
 
 
