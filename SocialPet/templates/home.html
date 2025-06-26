@@ -55,7 +55,7 @@
                 {% for post in posts_usuario %}
                 <article class="post">
                     <div class="post-header">
-                        <img src="{{ url_for('static', filename='images/perfil.png') }}" class="img-user-post" alt="Foto de perfil">
+                        <img src="{{ url_for('static', filename='images/pages/home/postEstaticos/SombraPerfil.png') }}" class="img-user-post" alt="Foto de perfil">
                         <div class="user-info">
                             <h3>{{ current_user.nome_usuario }}</h3>
                             <p>{{ post.hora_postagem.strftime('%d/%m %H:%M') }}</p>
@@ -93,7 +93,7 @@
                 </div>
                 <div class="post-content">
                     <p>#tbt do final de semana.</p>
-                      <img src="{{ url_for('static', filename='images/pages/home/postEstaticos/pexels-pixabay-160846.jpg') }}" alt="Imagem da postagem">
+                     
                      
                     <!-- Se tiver múltiplas imagens, dá pra fazer um carrossel similar ao estático -->
 

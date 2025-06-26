@@ -17,6 +17,7 @@ class Usuario(db.Model, UserMixin):
     email_usuario = db.Column(db.String(100), nullable=False, unique=True)
     senha_hash = db.Column(db.String(255), nullable=False)
     data_cadastro = db.Column(db.DateTime, default=datetime.utcnow)
+    imagem_perfil = db.Column(db.String(100), default='SombraPerfil.png')
 
     # Relacionamento com Post
     posts = db.relationship('Post', backref='usuario', lazy=True)
