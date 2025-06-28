@@ -1,5 +1,5 @@
 # criar as rotas do site
-from flask import render_template, url_for, flash, request, redirect, Blueprint, current_app, abort
+from flask import render_template, url_for, flash, request, redirect, Blueprint, current_app, abort, jsonify
 
 from flask_login import login_required, login_user, logout_user, current_user
 from SocialPet.forms import FormLogin, FormCadastro
@@ -176,7 +176,32 @@ def cadastro_pet():
     especies = Especie.query.all()
     return render_template("cadastro-pet.html", racas=racas,especies=especies)
 
-@auth_bp.route("/cadastro-ong")
+@auth_bp.route('/api/racas/<int:id_especie>')
+@login_required
+def racas_por_especie(id_especie):
+    racas = Raca.query.filter_by(id_especie=id_especie).order_by(Raca.nome_raca).all()
+    resultado = [{'id_raca': r.id_raca, 'nome_raca': r.nome_raca} for r in racas]
+    return jsonify(resultado)
+
+
+
+@main_bp.route("/perfil")
+@login_required
+def perfil():
+    return render_template("profile.html")
+
+@main_bp.route("/ongs")
+@login_required
+def ongs():
+    return render_template("listaONGs.html")
+
+@main_bp.route("/market")
+@login_required
+def market():
+    return render_template("market.html")
+
+
+@main_bp.route("/cadastro-ong")
 @login_required
 def cadastro_ong():
     return render_template("cadastro-ong.html")

@@ -93,55 +93,42 @@ function updateSelectedText(dropdown) {
 // 2. FUNÇÕES PARA CADASTRO DE PET 
 // ==============================================
 function inicializarCadastroPet() {
-    // Só executa se estiver na página de cadastro de pet
-    if (!document.getElementById("pet-raca")) return;
-
-    const speciesRadios = document.querySelectorAll("input[name='especie']");
-    const breedSelect = document.getElementById("pet-raca");
-
-    // Raças populares (cães e gatos)
-    const breedOptions = {
-        cachorro: [
-            "Labrador Retriever", "Bulldog Francês", "Golden Retriever", "Poodle", "Beagle",
-            "Pastor Alemão", "Pug", "Rottweiler", "Dachshund", "Outro"
-        ],
-        gato: [
-            "Persa", "Siamês", "Maine Coon", "Bengal", "Sphynx",
-            "British Shorthair", "Ragdoll", "Siberiano", "Outro"
-        ],
-        outra: ["Coelho", "Hamster", "Pássaro", "Outro"]
-    };
-
-    function updateBreedOptions(selectedSpecies) {
-        breedSelect.innerHTML = '';
-        const placeholder = document.createElement("option");
-        placeholder.textContent = "Escolha a raça ▼";
-        placeholder.disabled = true;
-        placeholder.selected = true;
-        breedSelect.appendChild(placeholder);
-
-        const speciesKey = selectedSpecies.toLowerCase();
-        if (breedOptions[speciesKey]) {
-            breedOptions[speciesKey].forEach(breed => {
-                const option = document.createElement("option");
-                option.value = breed.replace(/\s+/g, "-").toLowerCase();
-                option.textContent = breed;
-                breedSelect.appendChild(option);
-            });
-        }
-    }
-
-    speciesRadios.forEach(radio => {
-        radio.addEventListener("change", function() {
-            updateBreedOptions(this.value);
-            validatePetForm();
+    const selectEspecie = document.getElementById("especie");
+    const selectRaca = document.getElementById("pet-raca");
+    if (!selectEspecie || !selectRaca) return;
+  
+    selectEspecie.addEventListener("change", async function() {
+      const idEspecie = this.value;
+      
+      // Limpa opções de raça e coloca placeholder
+      selectRaca.innerHTML = '<option value="">Escolha a raça</option>';
+  
+      if (!idEspecie) return; // se não escolheu espécie, não faz nada
+  
+      try {
+        // Faz a requisição para buscar as raças do backend
+        const response = await fetch(`/api/racas/${idEspecie}`);
+        if (!response.ok) throw new Error("Erro ao carregar raças");
+  
+        const racas = await response.json();
+  
+        racas.forEach(raca => {
+          const option = document.createElement("option");
+          option.value = raca.id_raca;
+          option.textContent = raca.nome_raca;
+          selectRaca.appendChild(option);
         });
+      } catch (error) {
+        console.error(error);
+        alert("Erro ao carregar raças. Tente novamente.");
+      }
     });
-
-    // Inicializa se já houver uma espécie selecionada
-    const selectedSpecies = document.querySelector("input[name='especie']:checked")?.value;
-    if (selectedSpecies) updateBreedOptions(selectedSpecies);
-}
+  
+    // Se já tiver espécie selecionada (editar), carrega as raças logo de cara
+    if (selectEspecie.value) {
+      selectEspecie.dispatchEvent(new Event('change'));
+    }
+  }
 
 function cadastrarPet(event) {
     event.preventDefault();
