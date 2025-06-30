@@ -6,62 +6,62 @@ const ongList = document.getElementById('ongList');
 const ongs = [
     {
         nome: "Vida Animal",
-        logo: "./assets/images/pages/listaONGs/vida-animal.jpeg",
+        logo: "./static/images/pages/listaONGs/vida-animal.jpeg",
         missao: "Oferecendo suporte a animais em situação de vulnerabilidade e promovendo adoções."
     },
     {
         nome: "Guardião da Fauna",
-        logo: "./assets/images/pages/listaONGs/guardiao-fauna.jpeg",
+        logo: "./static/images/pages/listaONGs/guardiao-fauna.jpeg",
         missao: "Protegendo a vida selvagem e preservando o meio ambiente para gerações futuras."
     },
     {
         nome: "Patinhas Unidas",
-        logo: "./assets/images/pages/listaONGs/patinhas-unidas.jpeg",
+        logo: "./static/images/pages/listaONGs/patinhas-unidas.jpeg",
         missao: "Resgatando animais abandonados e fornecendo cuidados veterinários essenciais."
     },
     {
         nome: "Coração Selvagem",
-        logo: "./assets/images/pages/listaONGs/coracao-selvagem.jpeg",
+        logo: "./static/images/pages/listaONGs/coracao-selvagem.jpeg",
         missao: "Trabalhando na preservação de espécies ameaçadas em áreas florestais."
     },
     {
         nome: "Amigos de Penas",
-        logo: "./assets/images/pages/listaONGs/amigos-penas.jpeg",
+        logo: "./static/images/pages/listaONGs/amigos-penas.jpeg",
         missao: "Apoiando aves resgatadas e promovendo educação ambiental."
     },
     {
         nome: "SOS Bichos",
-        logo: "./assets/images/pages/listaONGs/sos-bichos.jpeg",
+        logo: "./static/images/pages/listaONGs/sos-bichos.jpeg",
         missao: "Proporcionando ajuda emergencial para animais feridos e abandonados."
     },
     {
         nome: "Casa dos Peludos",
-        logo: "./assets/images/pages/listaONGs/casa-peludos.jpeg",
+        logo: "./static/images/pages/listaONGs/casa-peludos.jpeg",
         missao: "Oferecendo abrigo temporário e lares adotivos para cães e gatos resgatados."
     },
     {
         nome: "Abrace um Amigo",
-        logo: "./assets/images/pages/listaONGs/abrace-amigo.jpeg",
+        logo: "./static/images/pages/listaONGs/abrace-amigo.jpeg",
         missao: "Promovendo a adoção responsável de animais e educação sobre bem-estar animal."
     },
     {
         nome: "Fauna Livre",
-        logo: "./assets/images/pages/listaONGs/fauna-livre.jpeg",
+        logo: "./static/images/pages/listaONGs/fauna-livre.jpeg",
         missao: "Reabilitando animais silvestres e devolvendo-os ao habitat natural."
     },
     {
         nome: "Peludos do Amanhã",
-        logo: "./assets/images/pages/listaONGs/peludos-amanha.jpeg",
+        logo: "./static/images/pages/listaONGs/peludos-amanha.jpeg",
         missao: "Construindo um futuro melhor para animais resgatados e negligenciados."
     },
     {
         nome: "Patas e Focinhos",
-        logo: "./assets/images/pages/listaONGs/patas-focinhos.jpeg",
+        logo: "./static/images/pages/listaONGs/patas-focinhos.jpeg",
         missao: "Cuidando de animais com amor e ajudando na reintegração a novos lares."
     },
     {
         nome: "Esperança Animal",
-        logo: "./assets/images/pages/listaONGs/esperanca-animal.jpeg",
+        logo: "./static/images/pages/listaONGs/esperanca-animal.jpeg",
         missao: "Dedicando esforços para salvar vidas e conscientizar sobre o cuidado animal."
     }
 ];

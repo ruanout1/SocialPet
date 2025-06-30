@@ -1,115 +1,130 @@
 //Itens do catálogo
-const items = [
-    {
-        id: 0,
-        nome: 'Ração cão 20kg',
-        img: 'assets/images/pages/marketplace/premier_formula_racas_grandes_para_caes_adultos_20kg_frango.webp',
-        preco: 20.97,
-        quantidade: 0,
+// Espera o DOM estar completamente carregado para executar o código
+document.addEventListener('DOMContentLoaded', function() {
 
-    },
-    {
-        id: 1,
-        nome: 'Ração gato 10kg',
-        img: 'assets/images/pages/marketplace/racao gato 10kg.jpg',
-        preco: 25.78,
-        quantidade: 0,
-        
-    },
-    {
-        id: 2,
-        nome: 'Ração gato premium',
-        img: 'assets/images/pages/marketplace/racao-gato-premium-10kg.jpg',
-        preco: 87.99,
-        quantidade: 0,
-        
-    },
-    {
-        id: 3,
-        nome: 'Ração cão 20kg',
-        img: 'assets/images/pages/marketplace/premier_formula_racas_grandes_para_caes_adultos_20kg_frango.webp',
-        preco: 50.99,
-        quantidade: 0,
+    // Itens do catálogo com os caminhos das imagens corrigidos
+    // FIX 2: Adicionada a barra "/" no início do caminho da imagem
+    const items = [
+        {
+            id: 0,
+            nome: 'Ração de cão 20kg',
+            img: '/static/images/pages/marketplace/Racao_cao.webp',
+            preco: 20.97,
+            quantidade: 0,
 
-    },
-    {
-        id: 4,
-        nome: 'Ração gato 10kg',
-        img: 'assets/images/pages/marketplace/racao gato 10kg.jpg',
-        preco: 20.99,
-        quantidade: 0,
-        
-    },
-    {
-        id: 5,
-        nome: 'Ração gato premium',
-        img: 'assets/images/pages/marketplace/racao-gato-premium-10kg.jpg',
-        preco: 87.99,
-        quantidade: 0,
-        
-    },
-]
-
-// Forma antiga de criar função (inicializarLoja)
-function inicializarLoja(){
-    var containerProdutos = document.getElementById('produtos');
-    items.map((val)=>{
-        containerProdutos.innerHTML+= `
-        <div class="produto-single">
+        },
+        {
+            id: 1,
+            nome: 'Ração de gato 10kg',
+            img: '/static/images/pages/marketplace/racao gato 10kg.jpg',
+            preco: 25.78,
+            quantidade: 0,
             
-            <p class="produto-nome">`+val.nome+`</p>
-            <img class="produto-img" src="`+val.img+`" />
-            <div class="produto-footer">
-                <p class="produto-preco">R$ `+val.preco+`</p>
-                <a class="carrinho-btn" key="`+val.id+`" href="#">Adicionar ao carrinho!</a>
+        },
+        {
+            id: 2,
+            nome: 'Ração gato premium',
+            img: '/static/images/pages/marketplace/racao-gato-premium-10kg.jpg',
+            preco: 87.99,
+            quantidade: 0,
+            
+        },
+        {
+            id: 3,
+            nome: 'Ração de cão 20kg',
+            img: '/static/images/pages/marketplace/premier_formula_racas_grandes_para_caes_adultos_20kg_frango.webp',
+            preco: 50.99,
+            quantidade: 0,
+
+        },
+        {
+            id: 4,
+            nome: 'Ração de gato 10kg',
+            img: '/static/images/pages/marketplace/racao gato 10kg.jpg',
+            preco: 20.99,
+            quantidade: 0,
+            
+        },
+        {
+            id: 5,
+            nome: 'Ração de gato premium',
+            img: '/static/images/pages/marketplace/racao-gato-premium-10kg.jpg',
+            preco: 87.99,
+            quantidade: 0,
+            
+        },
+    ];
+
+    const containerProdutos = document.getElementById('produtos');
+    const containerCarrinho = document.getElementById('carrinho');
+
+    // Função para renderizar os produtos na vitrine
+    function inicializarLoja() {
+        // Limpa a vitrine antes de adicionar novos itens para evitar duplicação
+        containerProdutos.innerHTML = ""; 
+        items.forEach((val) => {
+            // Usando forEach que é mais apropriado aqui do que map
+            containerProdutos.innerHTML += `
+            <div class="produto-single">
+                <p class="produto-nome">${val.nome}</p>
+                <img class="produto-img" src="${val.img}" alt="Imagem de ${val.nome}" />
+                <div class="produto-footer">
+                    <p class="produto-preco">R$ ${val.preco.toFixed(2)}</p>
+                    <a class="carrinho-btn" data-key="${val.id}" href="#">Adicionar ao carrinho!</a>
+                </div>
             </div>
-        </div>
-        `;
-    })
-}
+            `;
+        });
+    }
 
-/* forma moderna (não funcionou)
-inicializarLoja = () => {
-    var containerProdutos = document.getElementById('produtos');
-    items.map((val)=>{
-        console.log(val.nome);
-    })
-}
-*/
-//Trigger na função inicializarLoja
-inicializarLoja();
-
-// Função de adicionar produto ao carrinho
-function atualizarCarrinho() {
-    var containerCarrinho = document.getElementById('carrinho');
-    containerCarrinho.innerHTML = "";
-    items.map((val)=>{
-        if(val.quantidade > 0){
-        containerCarrinho.innerHTML+= `
-        <p>`+val.nome+` | quantidade: `+val.quantidade+`</p>
-        <hr>
-        `;
+    // Função para atualizar o visual do carrinho
+    function atualizarCarrinho() {
+        containerCarrinho.innerHTML = "";
+        let total = 0;
+        items.forEach((val) => {
+            if (val.quantidade > 0) {
+                containerCarrinho.innerHTML += `
+                <div class="carrinho-item">
+                    <span>${val.nome} | Qtd: ${val.quantidade}</span>
+                </div>
+                `;
+                total += val.quantidade * val.preco;
+            }
+        });
+        // Adiciona o total no final
+        if(total > 0){
+             containerCarrinho.innerHTML += `<hr><p><b>Total: R$ ${total.toFixed(2)}</b></p>`;
+        } else {
+             containerCarrinho.innerHTML = "<p>Seu carrinho está vazio.</p>";
         }
-    })
-}
-/* Ao clicar no "carrinho-btn" é incrementado na propiedade "quantidade" do produto
-*/
-var links = document.getElementsByClassName('carrinho-btn');
+    }
 
-for(var i = 0; i < links.length; i++) {
-    links[i].addEventListener("click",function(){
-        let key = this.getAttribute('key');
-        items[key].quantidade++;
-        atualizarCarrinho();
-        /*return false;*/
-    })
-}
+    // FIX 1: Usando Delegação de Eventos
+    // Adiciona um único "escutador" de eventos no container dos produtos
+    containerProdutos.addEventListener('click', function(event) {
+        // Previne o comportamento padrão do link (de navegar para "#")
+        event.preventDefault();
 
-const menuToggle = document.getElementById('menuToggle');
-const sidebarLeft = document.getElementById('menu');
+        // Verifica se o elemento clicado realmente é um botão de adicionar ao carrinho
+        if (event.target && event.target.classList.contains('carrinho-btn')) {
+            // Pega o ID do produto a partir do atributo data-key
+            const key = event.target.getAttribute('data-key');
+            items[key].quantidade++;
+            atualizarCarrinho();
+            console.log(`Adicionado produto ID: ${key}, Nome: ${items[key].nome}`);
+        }
+    });
 
-// Adiciona evento de clique no botão hamburguer
-menuToggle.addEventListener('click', () => {
-    sidebarLeft.classList.toggle('active'); // Alterna visibilidade do menu
-    menuToggle.classList.toggle('active'); // Alterna ícones no botão
+    // Código do menu lateral (mantido como estava)
+    const menuToggle = document.getElementById('menuToggle');
+    const sidebarLeft = document.getElementById('menu');
+
+    menuToggle.addEventListener('click', () => {
+        sidebarLeft.classList.toggle('active');
+        menuToggle.classList.toggle('active');
+    });
+
+    // Finalmente, chama as funções para iniciar a página
+    inicializarLoja();
+    atualizarCarrinho(); // Para mostrar a mensagem de carrinho vazio
 });

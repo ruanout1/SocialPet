@@ -17,8 +17,7 @@
             alt="Petfamily animaçao"
           />
           <h1>
-            Seja bem vindo de volta!<br />Temos o prazer de te receber
-            novamente.
+            Tudo pronto!<br />Faça login para acessar sua conta.
           </h1>
         </div>
         <form method="POST" action="{{ url_for('auth.login') }}" class="right-login">
@@ -26,11 +25,11 @@
           <div class="card-login">
             <h2>Entre na sua conta</h2>
             <div class="textfield">
-              {{ form.email.label }}<br>
+              {{ form.email.label }}
               {{ form.email(placeholder="Digite seu e-mail") }}
             </div>
             <div class="textfield">
-              {{ form.senha.label }}<br>
+              {{ form.senha.label }}
               {{ form.senha(placeholder="Digite sua senha") }}
               <a href="#">esqueceu a senha?</a>
             </div>
