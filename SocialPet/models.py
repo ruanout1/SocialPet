@@ -21,6 +21,8 @@ class Usuario(db.Model, UserMixin):
 
     # Relacionamento com Post
     posts = db.relationship('Post', backref='usuario', lazy=True)
+    # Relacionamento com Pet (necessário para verificação no login)
+    pets = db.relationship('Pet', backref='dono', lazy=True)
 
 
     @property

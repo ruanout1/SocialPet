@@ -20,9 +20,14 @@ def login():
         usuario = Usuario.query.filter_by(email_usuario=form.email.data).first()
         if usuario and bcrypt.check_password_hash(usuario.senha_hash, form.senha.data):
             login_user(usuario)
-            return redirect(url_for("auth.subcadastro"))
+            # Verifica se o usuário já cadastrou pelo menos um pet
+            if usuario.pets:  # Relacionamento: usuario.pets (se você configurou backref ou relationship)
+                return redirect(url_for("main.home"))
+            else:
+                return redirect(url_for("auth.subcadastro"))
         else:
             flash("Login falhou. Verifique e-mail e senha.", "danger")
+
     return render_template("index.html", form=form)
 
 @auth_bp.route("/", methods=["GET", "POST"])
